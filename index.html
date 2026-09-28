@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PlacementPal — your placement preparation workspace." />
+    <title>PlacementPal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#overview" data-page-link="overview" aria-label="PlacementPal home">
+          <span class="brand-mark">P</span>
+          <span>Placement<span>Pal</span></span>
+        </a>
+
+        <nav class="nav-list">
+          <a class="nav-item active" href="#overview" data-page-link="overview"><span>▦</span> Overview</a>
+          <a class="nav-item" href="#applications" data-page-link="applications"><span>◫</span> Applications</a>
+          <a class="nav-item" href="#roadmap" data-page-link="roadmap"><span>◌</span> Learning roadmap</a>
+          <a class="nav-item" href="#interview" data-page-link="interview"><span>◈</span> Mock interview</a>
+          <a class="nav-item" href="#profile" data-page-link="profile"><span>◎</span> My profile</a>
+        </nav>
+
+        <div class="sidebar-tip">
+          <span class="tip-icon">✦</span>
+          <p><strong>Small steps win.</strong><br />Finish one focused task today.</p>
+        </div>
+        <div class="profile-card">
+          <div class="avatar">T</div>
+          <div><strong>Teja</strong><small>Software aspirant</small></div>
+          <button class="icon-button" aria-label="Profile options">•••</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button id="menuButton" class="menu-button" aria-label="Open navigation">☰</button>
+          <div class="welcome"><p>Monday, 28 September</p><h1>Good morning, Teja <span>✦</span></h1></div>
+          <div class="top-actions"><button class="notification" aria-label="Notifications">♧<i></i></button><button class="primary-button" id="openApplicationModal">+ Add application</button></div>
+        </header>
+
+        <section id="overview" class="page active-page">
+          <div class="hero-grid">
+            <article class="focus-card">
+              <div class="eyebrow"><span></span> TODAY'S FOCUS</div>
+              <h2>You're building momentum.</h2>
+              <p>Complete your interview practice and get one step closer to your next opportunity.</p>
+              <button class="light-button" data-jump="interview">Start mock interview <b>→</b></button>
+              <div class="orb orb-one"></div><div class="orb orb-two"></div>
+            </article>
+            <article class="progress-card">
+              <div class="card-heading"><span>Weekly progress</span><strong id="weeklyPercent">0%</strong></div>
+              <div class="progress-track"><div class="progress-value" id="weeklyProgress"></div></div>
+              <div class="progress-days" aria-label="Weekly progress">
+                <div class="done"><i>✓</i><small>Mon</small></div><div class="done"><i>✓</i><small>Tue</small></div><div class="done"><i>✓</i><small>Wed</small></div><div class="current"><i>•</i><small>Thu</small></div><div><i></i><small>Fri</small></div><div><i></i><small>Sat</small></div><div><i></i><small>Sun</small></div>
+              </div>
+              <p><strong id="goalDoneCount">0</strong> of <strong>5</strong> weekly goals completed</p>
+            </article>
+          </div>
+
+          <div class="metrics-grid" aria-label="Application metrics">
+            <article class="metric-card purple"><div class="metric-icon">◫</div><div><p>Active applications</p><h3 id="activeApplications">0</h3><small><b>+2</b> this week</small></div></article>
+            <article class="metric-card orange"><div class="metric-icon">◷</div><div><p>Interviews lined up</p><h3 id="interviewCount">0</h3><small>Next one <b>Thu, 10:30 AM</b></small></div></article>
+            <article class="metric-card mint"><div class="metric-icon">✓</div><div><p>Profile readiness</p><h3 id="profileReadiness">76%</h3><small>Almost there — keep going!</small></div></article>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel applications-panel">
+              <div class="panel-title"><div><h2>Recent applications</h2><p>Keep your opportunities moving.</p></div><button class="text-button" data-jump="applications">View all <b>→</b></button></div>
+              <div class="table-wrap">
+                <table><thead><tr><th>COMPANY</th><th>ROLE</th><th>APPLIED</th><th>STATUS</th><th></th></tr></thead><tbody id="recentApplications"></tbody></table>
+              </div>
+            </section>
+
+            <section class="panel goals-panel">
+              <div class="panel-title"><div><h2>This week's goals</h2><p>Little wins, every day.</p></div><span class="goal-count" id="goalCount">0/5</span></div>
+              <div class="goal-list" id="goalList"></div>
+              <button class="subtle-button" id="addGoalButton">+ Add a goal</button>
+            </section>
+          </div>
+
+          <section class="resume-banner">
+            <div class="resume-art"><span>⌁</span></div>
+            <div><p class="eyebrow plain">RESUME HEALTH CHECK</p><h2>Is your resume ready for the next role?</h2><p>Get a quick checklist of the skills and sections to strengthen before you apply.</p></div>
+            <button class="outline-button" data-jump="roadmap">Check my resume <b>→</b></button>
+          </section>
+        </section>
+
+        <section id="applications" class="page">
+          <div class="page-heading"><div><p class="eyebrow plain">OPPORTUNITY HUB</p><h2>Applications</h2><p>All your job search activity, in one calm place.</p></div><button class="primary-button" id="openApplicationModal2">+ Add application</button></div>
+          <div class="application-tools"><label class="search-box" for="applicationSearch"><span>⌕</span><input id="applicationSearch" type="search" placeholder="Search company or role" /></label><button class="export-button" id="exportApplications">⇩ Export CSV</button></div>
+          <div class="filter-row"><button class="filter active-filter" data-filter="All">All</button><button class="filter" data-filter="Applied">Applied</button><button class="filter" data-filter="Interview">Interview</button><button class="filter" data-filter="Offer">Offer</button><button class="filter" data-filter="Rejected">Rejected</button><span id="applicationTotal"></span></div>
+          <div class="application-grid" id="applicationCards"></div>
+        </section>
+
+        <section id="roadmap" class="page">
+          <div class="page-heading"><div><p class="eyebrow plain">YOUR PREP SPACE</p><h2>Learning roadmap</h2><p>Put the right skills in place for a frontend role.</p></div></div>
+          <div class="roadmap-layout">
+            <section class="panel roadmap-panel"><h2>Frontend developer roadmap</h2><p class="muted">Build depth first, then confidence.</p><div id="roadmapItems"></div></section>
+            <section class="panel analyzer-panel"><span class="mini-label">AI-ASSISTED REVIEW</span><h2>Resume health check</h2><p>Paste your resume text and get an instant role-focused checklist.</p><textarea id="resumeText" placeholder="Paste your resume text here…"></textarea><button class="primary-button full-width" id="analyzeResume">Analyze resume</button><div id="resumeResult" class="result-box hidden" aria-live="polite"></div></section>
+          </div>
+        </section>
+
+        <section id="interview" class="page">
+          <div class="page-heading"><div><p class="eyebrow plain">PRACTICE MAKES PROGRESS</p><h2>Mock interview</h2><p>Answer one question at a time. Improve a little each round.</p></div></div>
+          <div class="interview-layout">
+            <section class="panel question-panel"><div class="question-top"><span class="question-number">QUESTION <b id="questionNumber">01</b></span><select id="questionTopic" aria-label="Choose interview topic"><option value="frontend">Frontend</option><option value="javascript">JavaScript</option><option value="behavioral">Behavioral</option></select></div><h2 id="interviewQuestion">How would you make a web page accessible to every user?</h2><div class="answer-area"><label for="answerText">Your answer</label><textarea id="answerText" placeholder="Think aloud as if you are in an interview…"></textarea><div><span id="wordCount">0 words</span><button class="primary-button" id="submitAnswer">Get feedback <b>→</b></button></div></div></section>
+            <aside class="practice-panel"><span class="mini-label">PRACTICE TIP</span><h3>Use the STAR method</h3><p>For experience-based questions, make your answer clear and memorable.</p><div class="star-list"><p><b>S</b> Situation</p><p><b>T</b> Task</p><p><b>A</b> Action</p><p><b>R</b> Result</p></div><div id="feedback" class="feedback hidden" aria-live="polite"></div></aside>
+          </div>
+        </section>
+
+        <section id="profile" class="page">
+          <div class="page-heading"><div><p class="eyebrow plain">YOUR PROFESSIONAL STORY</p><h2>My profile</h2><p>Keep your public links and skills ready for the next opportunity.</p></div></div>
+          <div class="profile-layout">
+            <section class="panel profile-form-panel">
+              <div class="panel-title"><div><h2>Your candidate profile</h2><p>This information stays only in this browser for now.</p></div><span class="local-label">LOCAL</span></div>
+              <form id="profileForm" class="profile-form">
+                <div class="form-row"><label>Full name<input name="name" required placeholder="Your name" /></label><label>Target role<input name="headline" required placeholder="e.g. Frontend Developer" /></label></div>
+                <label>About you<textarea name="about" placeholder="A short, clear summary of your strengths…"></textarea></label>
+                <label>Core skills<input name="skills" placeholder="React, JavaScript, TypeScript" /></label>
+                <div class="form-row"><label>GitHub URL<input name="github" type="url" placeholder="https://github.com/yourname" /></label><label>LinkedIn URL<input name="linkedin" type="url" placeholder="https://linkedin.com/in/yourname" /></label></div>
+                <button class="primary-button" type="submit">Save my profile</button><span id="profileSaved" class="saved-message hidden">✓ Saved locally</span>
+              </form>
+            </section>
+            <aside class="profile-preview">
+              <div class="preview-top"><div class="large-avatar" id="previewAvatar">T</div><span class="preview-chip">OPEN TO WORK</span></div>
+              <h2 id="previewName">Teja</h2><p id="previewHeadline">Frontend developer aspirant</p><div class="profile-completeness"><div><span>Profile completeness</span><strong id="profilePercent">0%</strong></div><div class="progress-track"><div id="profileProgress" class="progress-value"></div></div></div>
+              <div class="preview-skills" id="previewSkills"></div>
+              <p class="preview-note">A complete profile makes tailoring your applications much faster.</p>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop hidden" id="applicationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <form class="modal" id="applicationForm">
+        <button class="modal-close" type="button" id="closeModal" aria-label="Close">×</button>
+        <p class="eyebrow plain">NEW OPPORTUNITY</p><h2 id="modalTitle">Add an application</h2><p>Keep the important details within reach.</p>
+        <label>Company<input required name="company" placeholder="e.g. Razorpay" /></label>
+        <label>Role<input required name="role" placeholder="e.g. Frontend Developer Intern" /></label>
+        <div class="form-row"><label>Applied date<input required name="date" type="date" /></label><label>Status<select name="status"><option>Applied</option><option>Interview</option><option>Offer</option><option>Rejected</option></select></label></div>
+        <button class="primary-button full-width" type="submit">Save application</button>
+      </form>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
